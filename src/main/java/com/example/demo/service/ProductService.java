@@ -7,6 +7,7 @@ import org.springframework.stereotype.Service;
 
 import java.util.List;
 import java.util.Optional;
+import java.util.Objects;
 
 @Service
 public class ProductService {
@@ -19,11 +20,13 @@ public class ProductService {
     }
     
     public Optional<Product> getProductById(Long id) {
+        Objects.requireNonNull(id, "id must not be null");
         return productRepository.findById(id);
     }
     
     public Product createProduct(Product product) {
-        return productRepository.save(product);
+        Objects.requireNonNull(product, "product must not be null");
+        return Objects.requireNonNull(productRepository.save(product));
     }
     
     public Product updateProduct(Long id, Product productDetails) {
@@ -38,6 +41,7 @@ public class ProductService {
     }
     
     public void deleteProduct(Long id) {
+        Objects.requireNonNull(id, "id must not be null");
         productRepository.deleteById(id);
     }
 }
