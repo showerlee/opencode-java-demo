@@ -1,0 +1,23 @@
+{
+    "version":"0.2.0",
+    "configurations": [
+
+        {
+            "type": "java",
+            "name": "opencode-java-demo",
+            "cwd": "${workspaceFolder}",
+            "request": "launch",
+            "stopOnEntry": false,
+            "javaExec": "/opt/homebrew/opt/openjdk/bin/java",
+            "mainClass": "com.example.demo.DemoApplication",
+            "args": "--spring.config.location=src/main/resources/application.yaml",
+            "env": {
+                "JAVA_TOO_OPTION": "-Djava.io.tmpdir=/tmp"
+            }
+        }
+    ],
+    "java.configurations.runtime": {
+        "name": "JavaSE-26",
+        "path": "/opt/homebrew/Cellar/openjdk/26.0.1/libexec/openjdk.jdk/Contents/Home"
+    }
+}
