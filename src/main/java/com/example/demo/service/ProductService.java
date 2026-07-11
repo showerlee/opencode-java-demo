@@ -20,8 +20,8 @@ public class ProductService {
     }
     
     public Optional<Product> getProductById(Long id) {
-        Objects.requireNonNull(id, "id must not be null");
-        return productRepository.findById(id);
+        Long nonNullId = Objects.requireNonNull(id, "id must not be null");
+        return productRepository.findById(nonNullId);
     }
     
     public Product createProduct(Product product) {
@@ -30,18 +30,19 @@ public class ProductService {
     }
     
     public Product updateProduct(Long id, Product productDetails) {
-        return productRepository.findById(id)
+        Long nonNullId = Objects.requireNonNull(id, "id must not be null");
+        return productRepository.findById(nonNullId)
             .map(product -> {
                 product.setName(productDetails.getName());
                 product.setDescription(productDetails.getDescription());
                 product.setPrice(productDetails.getPrice());
                 return productRepository.save(product);
             })
-            .orElseThrow(() -> new RuntimeException("Product not found with id: " + id));
+            .orElseThrow(() -> new RuntimeException("Product not found with id: " + nonNullId));
     }
     
     public void deleteProduct(Long id) {
-        Objects.requireNonNull(id, "id must not be null");
-        productRepository.deleteById(id);
+        Long nonNullId = Objects.requireNonNull(id, "id must not be null");
+        productRepository.deleteById(nonNullId);
     }
 }
