@@ -12,7 +12,7 @@ A simple Spring Boot demo application with REST API, JPA/Hibernate, and H2 datab
 ## Project Structure
 ```
 src/main/java/com/example/demo/
-├── DemoApplication.java          # Main application class
+├── Application.java          # Main application class
 ├── config/
 │   └── DataInitializer.java     # Sample data initialization
 ├── controller/

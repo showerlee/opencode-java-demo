@@ -9,7 +9,7 @@
             "request": "launch",
             "stopOnEntry": false,
             "javaExec": "/opt/homebrew/opt/openjdk/bin/java",
-            "mainClass": "com.example.demo.DemoApplication",
+            "mainClass": "com.example.demo.Application",
             "args": "--spring.config.location=src/main/resources/application.yaml",
             "env": {
                 "JAVA_TOO_OPTION": "-Djava.io.tmpdir=/tmp"
